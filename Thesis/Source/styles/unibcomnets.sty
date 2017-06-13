@@ -1,0 +1,163 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% $Id$
+%
+% Package fuer LaTeX2e \documentclass{slides}, Layout des alten cnslides.sty
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{unibcomnets}
+
+\message{Package `unibcomnets'}
+
+
+%% Ausdruck im Landscape-Modus unter PostScript
+\def\landscape@special{}
+
+\DeclareOption{landscape}{%
+  \message{landscape}
+  \gdef\landscape@special{\special{landscape}}
+  \footskip 14mm
+  \textwidth 250mm
+  \textheight 153mm
+  \evensidemargin=-2mm
+  \oddsidemargin=-2mm
+  \topmargin=-13mm
+  }
+
+\DeclareOption{landscapemax}{%
+  \message{landscape max}
+  \gdef\landscape@special{\special{landscape}}
+  \footskip 14mm
+  \textwidth 250mm
+  \textheight 180mm
+  \evensidemargin=-2mm
+  \oddsidemargin=-2mm
+  \topmargin=-27mm
+  }
+
+
+\ProcessOptions
+
+% Parameter aendern (slides.cls)
+\def\normalsize{%
+      \@setfontsize\normalsize\itwentypt{28\p@ plus3\p@ minus4\p@}%
+      \@setfontsize@parms
+            {2pt}%
+            {15pt plus 8pt minus 4pt}% ORIG: {30\p@ plus18\p@ minus9\p@}%
+            {15\p@ plus3\p@ minus3\p@}%
+            {10\p@ plus3\p@ minus3\p@}%
+            {10\p@ plus3\p@}
+            \abovedisplayshortskip
+            {17}{7}}
+\normalsize
+
+% No topskip
+\topskip 0pt
+
+%
+% Eigener Page Style `unibcomnets'
+%
+\def\cn@title{}
+\def\cn@color{}
+\def\unibcomnetstitle#1{\gdef\cn@title{#1}}
+\def\unibcomnetscolor#1{\gdef\cn@color{#1}}
+
+\def\unibepsinclude{%
+\includegraphics[scale=1]{/usr/global/share/texmf/tex/latex/local/comnets/unib-comnets}%
+}%
+%%\def\cn@unib{\hbox{TEST}}
+
+% 16pt
+\font\unibSS=cmtt10 scaled 1600
+\font\sfbxSS=cmr10 scaled 1600
+\def\cnunibcnlogo#1#2#3#4#5{%
+  \hbox{%
+    \hbox{#1\unibepsinclude}%
+    %\hspace*{#4}%
+    %\hbox{#2ComNets}
+	}}
+\def\cnlogoSS{%
+  \cnunibcnlogo{\sfbxSS}{\sfbxSS}{16pt}{10pt}{2pt}}
+\def\cn@unib{\hbox{\cnlogoSS}}
+
+
+\def\ps@unibcomnets{
+  \def\ps@slide{
+    \def\@oddhead{\landscape@special\hfill}
+    \let\@evenhead\@oddhead
+    \def\@oddfoot{%
+      \cn@color{%
+      \setbox\@tempboxa\hbox{%
+        \vbox{\hrule\vskip\fboxsep\hbox{\cn@unib\hskip\fboxsep}}%
+        \vrule
+        }%
+      \newdimen\@tempdim\@tempdim=\textwidth
+      \advance\@tempdim by -\wd\@tempboxa
+      \box\@tempboxa
+      \vbox{%
+        \hbox to \@tempdim{\hfill\tiny\cn@title\hskip2em\small\theslide}%
+        \vskip\fboxsep\hrule width \@tempdim}%
+      }}
+    \let\@evenfoot\@oddfoot
+    }
+  \def\ps@overlay{
+    \def\@oddhead{\landscape@special\hfill}
+    \let\@evenhead\@oddhead
+    \def\@oddfoot{\cn@unib\hfill\cn@title
+      \hspace{2em}\normalsize\theoverlay}
+    \let\@evenfoot\@oddfoot
+    }
+  }
+
+\def\ps@unibcomnetsempty{
+  \def\ps@slide{
+    \def\@oddhead{\landscape@special\hfill}
+    \let\@evenhead\@oddhead
+    \def\@oddfoot{%
+      \cn@color{%
+      \setbox\@tempboxa\hbox{%
+        \vbox{\hrule\vskip\fboxsep\hbox{\cn@unib\hskip\fboxsep}}%
+        \vrule
+        }%
+      \newdimen\@tempdim\@tempdim=\textwidth
+      \advance\@tempdim by -\wd\@tempboxa
+      \box\@tempboxa
+      \vbox{%
+        \hbox to \@tempdim{\hfill}%
+        \vskip\fboxsep\hrule width \@tempdim}%
+      }}
+    \let\@evenfoot\@oddfoot
+    }
+  \def\ps@overlay{
+    \def\@oddhead{}\def\@evenhead{}
+    \def\@oddfoot{\cn@unib\hfill\cn@title
+      \hspace{2em}\normalsize\theoverlay}
+    \let\@evenfoot\@oddfoot
+    }
+  }
+
+
+\ps@unibcomnets
+\def\@oddhead{\landscape@special\hfill}\def\@oddfoot{\landscape@special\hfill}
+\def\@evenhead{}\def\@evenfoot{}
+
+\def\ps@cnunib{\ps@unibcomnets}
+\def\ps@cnunibempty{\ps@unibcomnetsempty}
+
+
+% itemize-Umgebung 
+\def\@listi{\parsep 0pt %.25\parskip
+\topsep 0pt
+\itemsep 0.5\parskip
+\partopsep 0pt}
+\def\@listii{\leftmargin\leftmarginii
+ \labelwidth\leftmarginii\advance\labelwidth-\labelsep
+ \parsep 0pt %.25\parskip
+% \topsep \parsep
+% \itemsep\parskip
+ \topsep 0pt
+ \itemsep 0pt
+}
+

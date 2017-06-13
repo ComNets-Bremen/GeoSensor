@@ -1,0 +1,37 @@
+{
+    "position": {
+    "valid": true,
+    "age": 773,
+    "latitude": 53.103403,
+    "longitude": 8.850414,
+    "altitude": 14.60,
+    "date": 10617,
+    "time": 10543700
+    },
+    "sensors": {
+        "temperature-air": {
+            "type": "temperature",
+            "sensor": "DHT11",
+            "name": "air-temperature",
+            "value": 21.0000,
+            "unit": "deg C"
+        },
+        "humidity-air": {
+            "type": "humidity",
+            "sensor": "DHT11",
+            "name": "air-humidity",
+            "value": 28.0000,
+            "unit": "%"
+        },
+        "temperature-soil": {
+            "type": "temperature",
+            "sensor": "DS18B20",
+            "name": "soil-temperature",
+            "value": 22.75,
+            "unit": "deg C"
+        }
+    },
+    "arduino_software": "JSON Protocol test suite: comnets",
+    "arduino_time": 1337,
+    "comment": "Comnets Smart Networks Laboratory"
+}

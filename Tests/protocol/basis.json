@@ -1,0 +1,37 @@
+{
+    "position": {
+    "valid": true,
+    "age": 773,
+    "latitude": 53.10367584,
+    "longitude": 8.85041809,
+    "altitude": -4.60,
+    "date": 50417,
+    "time": 10543700
+    },
+    "sensors": {
+    "temperature-air": {
+        "type": "temperature",
+        "sensor": "DHT11",
+        "name": "air-temperature",
+        "value": 21.0000,
+        "unit": "deg C"
+    },
+    "humidity-air": {
+        "type": "humidity",
+        "sensor": "DHT11",
+        "name": "air-humidity",
+        "value": 28.0000,
+        "unit": "%"
+    },
+    "temperature-soil": {
+        "type": "temperature",
+        "sensor": "DS18B20",
+        "name": "soil-temperature",
+        "value": 22.75,
+        "unit": "deg C"
+    }
+    },
+    "arduino_software": "Arduino Pro Mini 0.2",
+    "arduino_time": 52142,
+    "comment": "Build including potentiometer sensor"
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="csv_separator_names">
+        <item>"Komma (,)"</item>
+        <item>"Semikolon (;)"</item>
+        <item>"Tabulator"</item>
+    </string-array>
+
+    <string-array name="csv_separators">
+        <item>","</item>
+        <item>";"</item>
+        <item>"\t"</item>
+    </string-array>
+
+    <string-array name="decimal_mark_names">
+        <item>"Punkt (.)"</item>
+        <item>"Komma (,)"</item>
+    </string-array>
+
+    <string-array name="decimal_mark">
+        <item>"."</item>
+        <item>","</item>
+    </string-array>
+
+</resources>

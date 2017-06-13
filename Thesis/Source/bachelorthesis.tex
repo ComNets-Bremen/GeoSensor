@@ -1,0 +1,128 @@
+%
+% Bachelor thesis of Eike Trumann
+%
+% Topic:
+%
+
+\documentclass[11pt,twoside,a4paper]{report}
+%{{{ Packages
+
+\usepackage[intl]{unibscnreport}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{graphicx}
+\usepackage{makeidx}
+\usepackage{multicol}
+\usepackage{lgrind}
+\usepackage{booktabs}
+
+\def\pdfshellescape{1}
+\usepackage{epstopdf}
+
+%}}}
+%{{{ Definitions
+
+% Underline
+\newcommand{\ul}[1]{\underline{#1}}
+% Bold and sans serif
+\newcommand{\sbf}[1]{\textsf{\textbf{#1}}}
+% Raise box by half a line in tables
+\newcommand{\rb}[1]{\raisebox{1.5ex}[-1.5ex]{#1}}
+% Select language and switch off French spacing
+\newcommand{\setlang}[1]{\selectlanguage{#1}\nonfrenchspacing}
+
+% Search path
+%\graphicspath{{abb/kap_tetra/}}
+
+\pagestyle{headings}
+\makeindex
+
+%}}}
+
+%\includeonly{introduced,conditions,sourcecode,citations}
+
+\begin{document}
+
+%{{{ Title page
+
+\typ{Bachelor Thesis}
+\title{Position-based Data Acquisition using Arduino and Android}
+\author{Eike Trumann}
+\betreuer{Dipl.-Ing. Jens Dede}
+% In case that your supervisor has a master degree instead of
+% a diploma, the degree is written after the name:
+% \betreuer{K. Kuladinithi, M.Sc.}
+\matnr{2840097}
+\date{June 11th, 2017}
+\makecntitle
+
+%}}}
+%{{{ Abstract, Kurzfassung
+
+\cleardoublepage
+\include{summary_en}
+\include{summary_de}
+
+%}}}
+%{{{ Contents
+
+\tableofcontents
+
+%}}}
+%{{{ Chapters
+
+\include{introduction}
+\include{requirement_specification}
+\include{system_specification}
+\include{arduino}
+\include{android}
+\include{test}
+\include{conclusions}
+
+\include{appendix}
+
+%}}}
+%{{{ Appendix
+
+\appendix
+
+
+\nocite{9783836236485}
+\nocite{9783836242004}
+\nocite{Ali2016}
+\nocite{AndroidAPI}
+\nocite{AppCompat}
+\nocite{ATmega328}
+\nocite{HC-05}
+\nocite{JavaSpec}
+\nocite{FallDetector}
+\nocite{so1}
+\nocite{so2}
+\nocite{so3}
+
+%}}}
+%{{{ Lists
+
+\listoffigures
+
+% Glossary
+% Der Parameter ist der Name der Datei mit den Glossareinträgen.
+\cnglossary{glossary}
+
+% Abkürzungsverzeichnis
+% Der Parameter ist der Name der Datei mit der Liste der Abkürzungen.
+\cnabbreviations{abbreviations}
+
+% Literaturverzeichnis
+\include{citations}
+\bibliography{misc}
+% Mit der Stiloption 'cnplain' erhält man Nummern 
+% anstatt Namenskürzel
+\bibliographystyle{plainurl}
+
+% Stichwortverzeichnis
+\cnprintindex
+
+%}}}
+
+\end{document}

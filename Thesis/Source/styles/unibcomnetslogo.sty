@@ -1,0 +1,55 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% $Id$
+%
+% Package fuer LaTeX2e \documentclass{slides}, Layout des alten cnslides.sty
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{unibcomnetslogo}
+
+\message{Package `unibcomnetslogo'}
+
+%% Ausdruck im Landscape-Modus unter PostScript
+\ProcessOptions
+
+%
+% Eigener Page Style `unibcomnets'
+%
+\def\cn@title{}
+\def\cn@color{}
+\def\unibcomnetstitle#1{\gdef\cn@title{#1}}
+\def\unibcomnetscolor#1{\gdef\cn@color{#1}}
+
+\def\comnetsepsinclude{%
+\includegraphics[scale=0.8]{/usr/global/share/texmf/tex/latex/local/comnets/comnets}%
+}%
+\def\unibepsinclude{%
+\includegraphics[scale=1]{/usr/global/share/texmf/tex/latex/local/comnets/unib-comnets}%
+}%
+%%\def\cn@unib{\hbox{TEST}}
+
+% 16pt
+\font\unibSS=cmtt10 scaled 1600
+\font\sfbxSS=cmr10 scaled 1600
+\def\cnunibcnlogo#1#2#3#4#5{%
+  \hbox{%
+    \hbox{#1\unibepsinclude}%
+    %\hspace*{#4}%
+    %\hbox{#2ComNets}
+	}}
+
+\def\cncnlogo#1#2#3#4#5{%
+  \hbox{%
+    \hbox{#1\comnetsepsinclude}%
+    %\hspace*{#4}%
+    %\hbox{#2ComNets}
+	}}
+
+\def\cnlogoSS{%
+  \cncnlogo{\sfbxSS}{\sfbxSS}{16pt}{10pt}{2pt}}
+\def\cn@unib{\hbox{\cnlogoSS}}
+
+
+

@@ -1,0 +1,65 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_delete"
+        android:title="@string/action_delete"
+        android:icon="@drawable/ic_delete_white_24dp"
+        android:visible="false"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_maps"
+        android:title="@string/action_map_view"
+        android:visible="true"
+        android:icon="@drawable/ic_pin_drop_white_24dp"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_list"
+        android:title="@string/action_list_view"
+        android:visible="true"
+        android:icon="@drawable/ic_view_list_white_24dp"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_filter"
+        android:title="@string/action_filter"
+        android:visible="false"
+        android:icon="@drawable/ic_filter_list_white_24dp"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/action_sort"
+        android:title="@string/action_sort"
+        android:visible="false"
+        android:icon="@drawable/ic_sort_white_24dp"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/action_export"
+        android:title="@string/action_export"
+        android:icon="@drawable/ic_share_white_24dp"
+        android:visible="true"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/action_open_external"
+        android:title="@string/action_open_external"
+        android:icon="@drawable/ic_open_in_new_white_24dp"
+        android:visible="false"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/action_acquire_data"
+        android:title="@string/action_acquire_data"
+        android:icon="@drawable/ic_control_point_white_24dp"
+        android:visible="true"
+        app:showAsAction="ifRoom"/>
+
+    <!-- Settings, should always be in the overflow -->
+    <item android:id="@+id/action_settings"
+        android:title="@string/action_settings"
+        app:showAsAction="never"/>
+
+</menu>

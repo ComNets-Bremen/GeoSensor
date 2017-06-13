@@ -1,0 +1,1 @@
+This version of the GeoSensor embedded software is the one used in the demonstration device. In order to adapt it to your needs, you can remove the libraries used to read out the sensors of the demonstration device and exchange the code for the one needed by vour sensors.

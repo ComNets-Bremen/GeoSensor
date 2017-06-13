@@ -1,0 +1,25 @@
+\chapter{Source code}
+
+\section{main.c}
+\label{sec:main.c}
+
+Mit Hilfe des Programms \texttt{lgrind} kann man Quelltexte beliebiger
+Programmiersprachen in \TeX-Quelltexte konvertieren.
+
+\lgrindfile{src/main.c.tex}
+\index{lgrind}
+
+Obiges C-Programm wurde durch folgenden Aufruf generiert:
+
+\centerline{\texttt{lgrind -i main.c >main.c.tex}}
+
+%{{{ Emacs Local Variables
+
+% Local Variables: 
+% mode: latex
+% TeX-master: "diplomathesis"
+% TeX-command-list: (("TeX" "tex '\\nonstopmode\\input %t'" TeX-run-TeX nil t) ("TeX Interactive" "tex %t" TeX-run-interactive nil t) ("LaTeX" "%l '\\nonstopmode\\input{%t}'" TeX-run-LaTeX nil t) ("LaTeX Interactive" "%l %t" TeX-run-interactive nil t) ("LaTeX2e" "latex2e '\\nonstopmode\\input{%t}'" TeX-run-LaTeX nil t) ("SliTeX" "slitex '\\nonstopmode\\input{%t}'" TeX-run-LaTeX nil t) ("View" "%v " TeX-run-background t nil) ("Print" "%p " TeX-run-command t nil) ("Queue" "%q" TeX-run-background nil nil) ("File" "dvips %d -o %f " TeX-run-command t nil) ("BibTeX" "bibtex %s" TeX-run-BibTeX nil nil) ("Index" "makeindex -s indexeng.ist %s" TeX-run-command nil t) ("Check" "lacheck %s" TeX-run-compile nil t) ("Spell" "<ignored>" TeX-run-ispell nil nil) ("Other" "" TeX-run-command t t) ("Makeinfo" "makeinfo %t" TeX-run-compile nil t) ("AmSTeX" "amstex '\\nonstopmode\\input %t'" TeX-run-TeX nil t) ("GloTeX" "glotex %t" TeX-run-command nil nil))
+% folded-file: t
+% End: 
+
+%}}}

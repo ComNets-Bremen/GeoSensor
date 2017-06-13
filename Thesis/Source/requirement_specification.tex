@@ -1,0 +1,64 @@
+\chapter{Requirement Specification}
+\label{cha:requirements}
+In this chapter, the basic requirements and properties for the parts of the system developed for this thesis are defined.
+
+\section{Overall System Requirements}
+The objective of this thesis is to develop and test a system to acquire position-based measurements. The resulting system should consist of two parts: An Arduino-based measurement transducer and a smartphone app.
+The transducer should acquire the measurements from an arbitrary sensor (e.g., moisture, soil conductivity, soil stability etc.) when a button is pressed together with GPS-based position data. This data should be transmitted via Bluetooth to an Android smartphone. There, an app should receive this data, store and display it together with the position on a map. Additionally, the data should be exportable for example as a csv file.
+
+In accordance with the supervisor it was decided that the system and the accompanying documentation should be published as open source software and thus the following objectives are especcially considered during the design phase:
+\begin{itemize}
+	\item Well-documented system design
+	\item Code reusability
+	\item Code comprehensibility
+	\item Wide array of compatible hardware
+	\item Hardware rebuildability even for inexperiences users
+\end{itemize}
+
+As it should be possible for interested inexperiences users to rebuild the system and adapt it to theier needs, clear entry points for modifications and a user-friendly documentation should be included.
+
+\section{Hardware and Embedded Software Requirements}
+From the basic goals of the system, some basic properties of the transducer hardware can be identified:
+\begin{itemize}
+	\item Battery powered
+	\item Portable
+	\item Based on the Arduino platform
+	\item Broad range of compatible sensors
+\end{itemize}
+
+Furthermore there is a range of optmization criteria that may be derived from the task:
+\begin{itemize}
+	\item Energy consumption (battery lifetime)
+	\item Compactness
+	\item Low weight
+	\item Sensor compatibility
+	\item Extensibility
+\end{itemize}
+
+\subsection{Hardware}
+It was decided the hardware should be based on the Arduino ecosystem as the Arduino system is a well-established and inexpensive hardware platform with low requirements for previous knowledge in embedded systems engineering. The ecosystem furthermore offers good documentation and a variety of software librarys for sensors and other external hardware.
+
+It should be possible to build the hardware using inexpensive parts and having only basic knowledge of electronic circuits.
+
+\subsection{Embedded Software}
+The software should be able to run on as many device types of the Arduino platform as possible.
+
+As it should be possible to use as many different sensor types as possible in the system, the code should be easily adaptable to support new sensors. Other than the hardware limitations, the number of sensors connectable should not be limited.
+
+
+\section{Application Software Requirements}
+The application software should run on as many different devices as possible including devices equipped with old Android versions and low-end hardware. Basic functionality (i.e. receiving data) must work without internet or other connections other than the Bluetooth connection to the hardware part of the system.
+
+\subsection{Features}
+The application must include means to receive, display, store and export the measurements.
+
+\subsection{User Interface}
+The user interface should be easy to use for new users and power users alike. 
+
+
+%Survey of required components (GPS, Bluetooth) for Arduino
+%Build the transducer (Hardware and Software)
+%Implement communication between transducer and Smartphone (Bluetooth) Implement an Android Application to display, store and export the measurements
+%Optimization of the overall system like
+%Energy consumption of the transducer – PCB layout for the transducer
+%Evaluation by performing outside field tests • Documentation and presentation of the work.

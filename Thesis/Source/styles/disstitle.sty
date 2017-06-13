@@ -1,0 +1,143 @@
+%
+% $Id$
+%
+% Titelseitenmakro fuer Studien- und Diplomarbeiten
+%
+%{{{ Log
+
+% $Log$
+%
+% Diese Makros beruhen auf den "titlepage"-makros von latex. Im Text
+% sind neben der Angabe von Autor (mit \author{ }), Titel und Datum
+% jetzt auch noch die Art der Arbeit (z.B.: \typ{Studienarbeit}),
+% der Name des Betreuers (z.B.: \betreuer{Wiss. Angest. Dipl.-Ing.
+% L. Schmickler}) und die Matrikelnummer (z.B.: \matnr{178123}) anzugeben.
+% Diese Angaben werden in die Standardformulare der Titelseite
+% und die Seite mit der Erklaerung eingetragen.
+% Mit dem Befehl "\maketitledfv" werden diese beiden Seite
+% ohne Seitennummerierung ausgegeben (wie "\maketitle").
+%                                                            LS
+
+%}}}
+%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{disstitle}
+
+%{{{ Optionen
+
+\def\@cntext{Arbeitsgruppe Kommunikationsnetze\par
+  Universität Bremen\par}
+\def\@oftext{von}
+\def\@matrtext{Matr.-Nr.}
+\def\@datetext{Bremen, den}
+\def\@betrtext{Betreuung durch:}
+\def\@legaltext{Die Arbeit ist nur zum internen Gebrauch bestimmt.
+  Alle Urheberrechte liegen beim betreuenden Lehrstuhl. F\"ur den
+  Inhalt wird keine Gew\"ahr \"ubernommen. Vervielf\"al\-ti\-gungen
+  und Ver\"offentlichungen jeglicher Art sind nur mit Genehmigung des
+  Lehrstuhls gestattet.}
+\def\@assuretext{Ich versichere, da\ss\ die vorliegende Arbeit - bis
+  auf die offizielle Betreuung durch den Lehrstuhl - ohne fremde Hilfe
+  von mir durchgef\"uhrt wurde. Die verwendete Literatur ist im
+  Literaturverzeichnis vollst\"andig angegeben.}
+
+\DeclareOption{intl}{%
+  \def\@cntext{Communication Networks\par
+    University of Bremen\par}
+  \def\@oftext{of}
+  \def\@matrtext{Matriculation Number:}
+  \def\@datetext{Bremen,}
+  \def\@betrtext{Supervised by:}
+  \def\@legaltext{This publication is meant for internal use only. All
+    rights reserved. No liabilities with respect to its content are
+    accepted. No part of it may be reproduced, stored in a retrieval
+    system, or transmitted, in any form or by any means, electronic,
+    mechanical, photocopying, recording, or otherwise, without the
+    prior written permission of the publisher.} 
+  \def\@assuretext{I assure, that this work has been done solely by me
+    without any further help from others except for the offical
+    attendance by the Chair of Communication Networks. The literature
+    used is listed completely in the bibliography.}}
+
+\ProcessOptions
+
+%}}}
+%{{{ Matrikelnummer des Kandidaten
+
+\def\matnr#1{\gdef\@matnr{#1}}
+\gdef\@matr{}
+
+%}}}
+%{{{ Betreuer der Arbeit (wiss. Mitarbeiter)
+
+\def\betreuer#1{\gdef\@betreuer{#1}}
+\gdef\@betreuer{}
+
+%}}}
+%{{{ Typ der Arbeit: Diplom oder Studienarbeit
+
+\def\typ#1{\gdef\@typ{#1}}
+\gdef\@typ{}
+
+%}}}
+%{{{ Seitenaufbau
+
+\def\makecntitle{
+%
+%{{{ Titelseite
+
+\begin{titlepage}
+\let\footnotesize\normalsize \let\footnoterule\relax \setcounter{page}{0}
+%\null
+%\vfil
+\vskip -3cm
+\begin{center}
+\@cntext
+Prof.\ Dr.\ rer. nat. habil. C.\ G\"org\par
+\vskip 60pt
+{\Large \@typ\par}
+\vskip 1.5em
+{\Huge\sf \@title \par}
+\vskip 1.5em
+{\sf\@oftext\par}
+\vskip 3em
+{\Large \@author \par}
+%\vskip 1.5em
+%{\sf\@matrtext\ \@matnr \par}
+\vskip 3em
+{\sf\@datetext\ \@date\par}
+\end{center} \par
+\vskip 4.5cm
+%
+\@betrtext\par
+Prof.\ Dr.\ rer. nat. habil. C.\ G\"org\par
+\@betreuer\par
+%
+%\vfill
+%%\@legaltext
+\null
+\end{titlepage}
+
+%}}}
+
+%
+%{{{ Ruecksetzen der verwendeten Makros
+
+\setcounter{footnote}{0}
+\gdef\@typ{} \gdef\@betreuer{} \gdef\@matnr{} \gdef\@author{} \gdef\@title{}
+\def\maketitledipl{}
+
+%}}}
+}
+
+%}}}
+
+%{{{ Emacs Local Variables
+
+% Local Variables: 
+% mode: latex
+% folded-file: t
+% End: 
+
+%}}}

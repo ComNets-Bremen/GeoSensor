@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- from http://stackoverflow.com/questions/27421299/google-map-lite-in-cardview -->
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/DetailsCardView"
+    app:contentPadding="0dp"
+    app:contentPaddingLeft="0dp"
+    app:contentPaddingRight="0dp"
+    app:contentPaddingTop="0dp"
+    app:contentPaddingBottom="0dp">
+
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/card_map_view"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        map:cameraZoom="12"
+        map:mapType="normal"
+        map:liteMode="true"
+        />
+
+</android.support.v7.widget.CardView>

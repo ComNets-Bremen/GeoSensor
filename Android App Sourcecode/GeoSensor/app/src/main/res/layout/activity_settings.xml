@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="de.eiketrumann.geosensor.MainActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/mainToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ToolbarBlueWhite"
+        app:titleTextColor="@android:color/white"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        tools:ignore="UnusedAttribute" />
+
+    <fragment
+        android:name="de.eiketrumann.geosensor.SettingsFragment"
+        android:layout_below="@+id/mainToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/settings_fragment"/>
+
+</RelativeLayout>

@@ -1,0 +1,1 @@
+~/Library/android/sdk/platform-tools/adb exec-out run-as de.eiketrumann.geosensor cat databases/MeasureData.db > ~/git/bachelorthesis/MeasureData.db 

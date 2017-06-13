@@ -1,0 +1,43 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
+    </style>
+
+    <style name="DialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="ToolbarBlueWhite" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="colorControlNormal">#FFFFFF</item>
+        <item name="android:textColorPrimary">#FFFFFF</item>
+    </style>
+
+    <style name="PreferenceThemeOverlay" parent="PreferenceThemeOverlay">
+    </style>
+
+    <style name="DetailsCardView" parent="CardView.Light">
+        <item name="cardCornerRadius">2dp</item>
+        <item name="cardElevation">2dp</item>
+        <item name="contentPaddingBottom">8dp</item>
+        <item name="contentPaddingTop">8dp</item>
+        <item name="contentPaddingLeft">12dp</item>
+        <item name="contentPaddingRight">12dp</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:layout_marginLeft">4dp</item>
+        <item name="android:layout_marginRight">4dp</item>
+        <item name="cardBackgroundColor">#FFFFFF</item>
+        <item name="android:background">#FFFFFF</item>
+        <item name="android:textColorPrimary">@android:color/black</item>
+    </style>
+
+</resources>

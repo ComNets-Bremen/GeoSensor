@@ -1,0 +1,37 @@
+{
+    "position": {
+    "valid": true,
+    "age": -10511451,
+    "latitude": 173.10367584,
+    "longitude": -180.85041809,
+    "altitude": -4600,
+    "date": 241399,
+    "time": -10543700
+    },
+    "sensors": {
+    "temperature-air": {
+        "type": "tbsdbgdse",
+        "sensor": "DHT11",
+        "name": "air-temperature",
+        "value": "2155261",
+        "unit": "gfdsf"
+    },
+    "humidity-air": {
+        "type": "bfgndbf",
+        "sensor": "brsbsrbrsbrtwwsb",
+        "name": "air-humidity",
+        "value": 59572515262,
+        "unit": "%"
+    },
+    "temperature-soil": {
+        "type": "qwert",
+        "sensor": "DS18B20",
+        "name": "soil-temperature",
+        "value": 22.75,
+        "unit": "deg C"
+    }
+    },
+    "arduino_software": "Arduino Pro Mini 0.2",
+    "arduino_time": 3200000000,
+    "comment": 13
+}

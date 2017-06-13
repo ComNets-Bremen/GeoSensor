@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="de.eiketrumann.geosensor">
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:installLocation="internalOnly"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".MainMapsActivity"
+            android:label="@string/title_activity_main_maps" />
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/preferences" />
+        <activity
+            android:name=".DetailsActivity"
+            android:label="@string/details" />
+        <activity
+            android:name=".DeviceListActivity"
+            android:label="@string/device_list"
+            android:theme="@style/DialogTheme" />
+
+        <service
+            android:name=".BluetoothReceiverService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <activity
+            android:name=".DetailsMapsActivity"
+            android:label="@string/title_activity_details_maps" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="de.eiketrumann.geosensor.MainActivity"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_export_paths" />
+        </provider>
+
+        <activity
+            android:name=".FirstStartActivity"
+            android:label="@string/title_activity_first_start" />
+    </application>
+
+</manifest>

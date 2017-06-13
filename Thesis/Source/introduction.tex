@@ -1,0 +1,31 @@
+\chapter{Introduction}
+\label{cha:Introduction}
+
+Even though almost all sensors these days provide electrical or even digital data readout and data analysis tasks are carried out using a wide array of computer application software, there are still often analog gaps in the flow of information that need to be abridged by laborious human interaction. In an age of ubiquitous computing devices and network technologies researchers might still be found writing measured data on paper in order to transcribe it into a spreadsheet application later. The situation gets even worse if different types of sensors must be integrated or the measurements need to be conjoined with geolocation and time information.
+
+Some of the reasons to persue a wasteful workflow abridging the analog gap might be the following:
+
+\begin{itemize}
+\item No suitable hardware has yet been build
+\item High cost of avaliable systems
+\item Existing systems are difficult to use
+\item Lack of adaptability to use case
+\end{itemize}
+
+For this thesis, a measurement transducer that aims to overcome the aforementioned issues was build and tested. This thesis is mainly focused around so-called one-shot sensor readout (i.e. for each measurement there is only one value recorded for each sensor), but the system might easily be adapted for periodic sensor readout with frequencies up to around one sensor readout per second.
+
+The system build for this thesis consists of a Google Android application and an embedded system build using the Arduino platform. The application might be installed on virtually any Android device. The basic functionality available includes receiving data from the Arduino part of the system using a Bluetooth connection and exporting the received information to a spreadsheet file that can be transferred to about any device or opened using third party application software on the Android device itself. The app can leverage Google's services to visualize data on a map and provide some other additional features.
+
+The embedded system part basically consists of an Arduino (or compatible) microcontroller board and a Bluetooth transmission module. In case precise location information is needed, it is advisable to include a hardware GPS module (the geolocalization might also be handled by the Android device if it is eqipped with GPS). Any sensor that interfaces with Arduino (which includes sensors giving analog readout, UART serial connections, I$^2$C, SPI and more) might be included in the system. The information derived from the sensors is then sent to the Android application using a Bluetooth connection.
+
+The rapidly increasing number of Android devices deployed, the widespread proficiency to use Android devices and low entry-level device prices are major strong points for the Android platform. Where available, pre-existing devices can be used in this setup without any further expenses for the Android part of system.
+
+For the hardware parts of the system, the Arduino platform enables the hardware to be assembled by anyone with basic knowledge of electronic circuitry while the usage of the C-based Arduino programming language requires only little previous knowledge of embedded systems programming to adjust the code to new use cases.
+
+\ section{State of the Art}
+On the internet, a lot of Arduino projects including some sensors and communications to an iOS or Android smartphone can be found. Most of theese solutions are targeted at very specific purposes. Two projects that serve a purpose similar to the one of this thesis are Geo Data Logger (see \cite{gdl}), which is a software logging geotagged data from an Ardiono to a SD-card without any on-the-go visualisation capabilities and SensoDuino (see \cite{sensoduino}). While SensoDuino seems to offer most of the capabilities of the system described in this thesis including geotagged data logging, data visualization on Android smartphones and exporting the data to comma separated values files, the app is not avaliable as open source and seems to be abandoned not supporting recent Android versions. 
+
+Commercialy available solutions (see \cite{mfEDV} and \cite{topcon} for examples of commercial products) often target only specific sectors like forestry, agriculture and construction works. None of these solutions offer the low cost and versatility of the system proposed in this thesis.
+
+
+The system developed in this thesis aims to overcome the limitations imposed by the avaliable solutions and provide a versatile and low-cost alternative for both hobbyist and scientific use. An important aspect targeting these groups is the easy adaptability of the system eliminating the need to adapt the Android application software as many Arduino hobbyists and programming novices will find adapting Arduino software to be significantly easier compared to Android application programming.

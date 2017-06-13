@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_skip"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_skip" />
+
+    <item
+        android:id="@+id/navigation_start"
+        android:icon="@drawable/ic_bluetooth_searching_black_24dp"
+        android:title="@string/title_start" />
+
+</menu>

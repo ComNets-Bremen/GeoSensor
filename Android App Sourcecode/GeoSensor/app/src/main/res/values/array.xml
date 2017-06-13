@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="csv_separator_names">
+        <item>"Comma (,)"</item>
+        <item>"Semicolon (;)"</item>
+        <item>"Tab stop"</item>
+    </string-array>
+
+    <string-array name="csv_separators">
+        <item>","</item>
+        <item>";"</item>
+        <item>"\t"</item>
+    </string-array>
+
+    <string-array name="decimal_mark_names">
+        <item>"Full Stop (.)"</item>
+        <item>"Comma (,)"</item>
+    </string-array>
+
+    <string-array name="decimal_mark">
+        <item>"."</item>
+        <item>","</item>
+    </string-array>
+
+</resources>

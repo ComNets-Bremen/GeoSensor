@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <PreferenceCategory
+        android:title="@string/pref_bluetooth"
+        android:key="pref_key_bluetooth_settings">
+        <android.support.v7.preference.CheckBoxPreference
+            android:key="@string/pref_key_bluetooth_basic"
+            android:title="@string/bluetooth_switch_basic_title"
+            android:summary="@string/bluetooth_switch_basic_summary"
+            android:defaultValue="false"
+            android:persistent="true" />
+
+        <android.support.v7.preference.Preference
+            android:key="@string/pref_key_select_bluetooth"
+            android:title="@string/bluetooth_selector_title"
+            android:summary="@string/bluetooth_selector_summary" />
+
+        <android.support.v7.preference.CheckBoxPreference
+            android:key="@string/pref_key_incoming_data_notification"
+            android:title="@string/incoming_data_setting_title"
+            android:summary="@string/incoming_data_setting_summary"
+            android:defaultValue="true"
+            android:persistent="true"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/pref_position"
+        android:key="pref_key_position_settings">
+        <android.support.v7.preference.CheckBoxPreference
+            android:key="@string/pref_key_location_switch"
+            android:title="@string/location_switch_title"
+            android:summary="@string/location_switch_summary"
+            android:defaultValue="false"
+            android:persistent="true"
+            android:id="@+id/location_switch" />
+
+        <android.support.v7.preference.CheckBoxPreference
+            android:key="@string/pref_key_gps_background"
+            android:title="@string/gps_background"
+            android:summary="@string/gps_background_summary"
+            android:defaultValue="false"
+            android:persistent="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/pref_export"
+        android:key="pref_key_export_settings">
+
+        <android.support.v7.preference.ListPreference
+            android:key="@string/pref_key_csv_separator"
+            android:title="@string/csv_separator_title"
+            android:summary="@string/csv_separator_summary"
+            android:entries="@array/csv_separator_names"
+            android:entryValues="@array/csv_separators"
+            android:persistent="true"
+            android:defaultValue="1"/>
+
+        <android.support.v7.preference.ListPreference
+            android:key="@string/pref_key_decimal_mark"
+            android:title="@string/decimal_mark_title"
+            android:summary="@string/decimal_mark_summary"
+            android:entries="@array/decimal_mark_names"
+            android:entryValues="@array/decimal_mark"
+            android:persistent="true"
+            android:defaultValue="1"/>
+
+        <android.support.v7.preference.CheckBoxPreference
+            android:key="@string/pref_key_export_best_position"
+            android:title="@string/export_best_position"
+            android:summary="@string/export_best_position_summary"
+            android:defaultValue="false"
+            android:persistent="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/pref_database"
+        android:key="pref_key_database">
+
+        <android.support.v7.preference.Preference
+            android:key="@string/pref_key_delete_old"
+            android:title="@string/delete_old_title"
+            android:summary="@string/delete_old_summary" />
+
+        <android.support.v7.preference.Preference
+            android:key="@string/pref_key_drop_database"
+            android:title="@string/drop_database_title"
+            android:summary="@string/drop_database_summary" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/pref_transducer"
+        android:key="pref_key_transducer">
+
+        <android.support.v7.preference.CheckBoxPreference
+            android:key="@string/pref_key_show_acquire_data"
+            android:title="@string/show_acquire_data_title"
+            android:summary="@string/show_acquire_data_summary"
+            android:defaultValue="true"
+            android:persistent="true" />
+
+        <android.support.v7.preference.Preference
+            android:key="@string/pref_key_request_resend"
+            android:title="@string/request_resend_title"
+            android:summary="@string/request_resend_summary" />
+    </PreferenceCategory>
+
+</android.support.v7.preference.PreferenceScreen>
