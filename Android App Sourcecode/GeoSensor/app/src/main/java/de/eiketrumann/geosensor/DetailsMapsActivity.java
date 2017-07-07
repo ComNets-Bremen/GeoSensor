@@ -53,7 +53,7 @@ public class DetailsMapsActivity extends GeoSensorActivity implements OnMapReady
     }
 
     /**
-     * Disabled all symbols in the ActionBar and adds a back button
+     * Adds a back button to the Toolbar
      * @param menu the Menu that needs to be inflated
      * @return always true
      */

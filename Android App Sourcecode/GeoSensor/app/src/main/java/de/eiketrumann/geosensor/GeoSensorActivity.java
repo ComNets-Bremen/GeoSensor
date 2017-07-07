@@ -110,6 +110,11 @@ public abstract class GeoSensorActivity extends AppCompatActivity {
                 return true;
             }
 
+            case R.id.action_about:
+                Intent aboutIntent = new Intent(this, AboutActivity.class);
+                startActivity(aboutIntent);
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }

@@ -72,6 +72,10 @@
         <activity
             android:name=".FirstStartActivity"
             android:label="@string/title_activity_first_start" />
+        <activity
+            android:name=".AboutActivity"
+            android:label="@string/title_activity_about"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
