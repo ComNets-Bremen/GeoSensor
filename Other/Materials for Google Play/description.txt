@@ -1,0 +1,5 @@
+GeoSensor dient der georeferenzierten Messdatenerfassung. Diese App muss zusammen mit einem kompatiblen Messdatenerfassungsgerät verwendet werden. Eine Anleitung, wie ein Solches auf Basis der Arduino-Plattform und eines Bluetooth-Moduls gebaut werden kann, findet sich auf der zugehörigen Seite auf GitHub (siehe Link in den Details).
+Die App kann von nahezu beliebigen Sensoren mithilfe des Messdatenerfassungsgerätes erfasste Daten speichern, in einer Liste und auf einer Karte anzeigen und die Daten als .csv-Datei in andere Apps exportieren.
+
+GeoSensor is an app for geotagged measurements. This app must be used with a compatible measurement transducer. A guide to building such a transducer based on the Arduino platform and other information regarding the app can be found on the projects GitHub page (see details section below). 
+The App can visualize measurement data in a list or on a map. The location data can be derived from an external hardware GPS receiver or from the android device. For further use, the data can be exported to other apps in the .csv file format.
