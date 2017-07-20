@@ -77,7 +77,7 @@
     <string name="no_spreadsheet_application_message">Es ist keine App installiert, mit der Tabellen geeöffnent werden können</string>
     <string name="no_spreadsheet_application">Keine geeignete App</string>
     <string name="no_location_message">Für diesen Messpunkt ist keine Position vorhanden</string>
-    <string name="no_export_application_message">"Es ist keine App installiert, die die Datei speicher kann. Bitte installieren sie eine App wie Google Drive oder Dropbox. "</string>
+    <string name="no_export_application_message">"Es ist keine App installiert, die die Datei speichern kann. Bitte installieren sie eine App wie Google Drive oder Dropbox. "</string>
     <string name="no_export_application">Keine geeignete App</string>
     <string name="loading">Adresse: wird abgerufen</string>
     <string name="gps_background_summary">GPS-Empfang im Hintergrund aktivieren, während ein Bluetooth-Gerät verbunden ist. Hierdurch können genauere Positionen erfasst werden, allerdings steigt der Stromverbrauch.</string>
@@ -157,10 +157,40 @@
     <string name="request_resend_summary">Erneutes Senden der letzten Messdaten anfordern. Nicht alle geräte unterstützen diese Funktion.</string>
     <string name="show_acquire_data_summary">Menüoption zum Anfordern einer Messung anzeigen. Nicht alle Geräte unterstützen diese Funktion.</string>
     <string name="show_acquire_data_title">Messung aus App starten</string>
-    <string name="title_home">\"<b>Willkommen bei GeoSensor</b> \n\n Um diese App benutzen zu können, muss sie mit einem kompatiblen Messwertumsetzer verbunden werden. Eine Anleitung zum Bau eines solchen Messwertumsetzers findet sich auf folgender Internetseite: \neiketrumann.de/geosensor_transducer.pdf\n\n Drücken sie zum Fortfahren den Startknopf am unteren Bildschirmrand. Falls Sie Bluetooth deaktiviert haben, werden sie zunächst gebeten, dieses zu aktivieren. Danach sehen sie eine Liste von Bluetoothgeräten, aus denen sie ihren Messwertumsetzer auswählen können. \n\n Falls ihr Messwertumsetzer nicht in der Liste auftaucht, müssen sie gegebenenfalls die Schnelleinstellungen oder die Systemeinstellungen benutzen, um das Gerät zunächst zu koppeln. Danach taucht es auf jeden Fall in der Liste auf.\"</string>
+    <string name="title_home">
+        <big><b>Willkommen bei GeoSensor</b></big>
+        \n\n Um diese App benutzen zu können, muss sie mit einem kompatiblen Messwertumsetzer
+        verbunden werden. Eine Anleitung zum Bau eines solchen Messwertumsetzers findet sich auf
+        folgender Internetseite:
+        \n<a href="https://github.com/ComNets-Bremen/GeoSensor/">https://github.com/ComNets-Bremen/GeoSensor/</a>
+        \n\n Drücken sie zum Fortfahren den Startknopf am unteren Bildschirmrand.
+        Falls Sie Bluetooth deaktiviert haben, werden sie zunächst gebeten, dieses zu aktivieren.
+        Danach sehen sie eine Liste von Bluetoothgeräten, aus denen sie ihren Messwertumsetzer
+        auswählen können. \n\n Falls ihr Messwertumsetzer nicht in der Liste auftaucht, müssen sie
+        gegebenenfalls die Schnelleinstellungen oder die Systemeinstellungen benutzen, um das Gerät
+        zunächst zu koppeln. Danach taucht es auf jeden Fall in der Liste auf.
+    </string>
     <string name="entry_does_not_exist">Der Eintrag existiert nicht mehr.</string>
     <string name="no_location_data">Keine Positionsdaten</string>
     <string name="resend_requested">Erneute Übermittlung angefordert.</string>
     <string name="action_delete">Diesen Eintrag löschen</string>
     <string name="pref_transducer">Messwertumsetzer</string>
+    <string name="action_about">Über GeoSensor</string>
+    <string name="title_activity_about">Über GeoSensor</string>
+    <string name="about_text">
+        <big><b>Über GeoSensor</b></big>
+        \n\nDiese App wurde im Rahmen der Bachelorarbeit von Eike Trumann bei der Arbeitsgruppe
+        Kommunikationsnetze der Universität Bremen erstellt.
+        Die App gehört zu einem System, dass der georeferenzierten Messdatenerfassung dient.
+        Um die App sinnvoll benutzen zu können, wird ein Gerät zur Messdatenerfassung benötigt.
+        In der zugehörigen Dokumentation findet sich eine Anleitung, wie ein solcher
+        Messwertumsetzer unter Verwendung der Arduino-Plattform gebaut werden kann.
+        Die Dokumentation und auch der komplette Quellcode der App finden sich auf github unter:
+        \n<a href="https://github.com/ComNets-Bremen/GeoSensor/">https://github.com/ComNets-Bremen/GeoSensor/</a>
+        \n\nDer Quellcode der App ist unter der GNU General Public License Version 3 lizenziert und
+        kann somit von jedem angepasst und weiterverbreitet werden, solange die Lizenz erhalten
+        bleibt, der veränderte Code veröffentlicht wird und der Name der ursprünglichen Autoren
+        genannt wird.
+        \n\nEinige Bestandteile der App sind Copyright 2014 The Android Open Source Project.
+    </string>
 </resources>
