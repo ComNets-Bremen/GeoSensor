@@ -203,5 +203,6 @@
         \n\nSome parts of the app are copyright 2014 The Android Open Source Project.
     </string>
     <string name="action_about">About GeoSensor</string>
+    <string name="action_license">Licenses</string>
 
 </resources>

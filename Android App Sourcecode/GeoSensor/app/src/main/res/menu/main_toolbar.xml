@@ -67,4 +67,8 @@
         android:title="@string/action_about"
         app:showAsAction="never"/>
 
+    <item android:id="@+id/action_license"
+        android:title="@string/action_license"
+        app:showAsAction="never"/>
+
 </menu>

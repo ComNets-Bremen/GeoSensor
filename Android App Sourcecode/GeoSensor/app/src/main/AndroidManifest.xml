@@ -61,7 +61,7 @@
 
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="de.uni_bremen.geosensor.MainActivity"
+            android:authorities="de.uni_bremen.comnets.geosensor.MainActivity"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
@@ -75,7 +75,7 @@
         <activity
             android:name="de.uni_bremen.comnets.geosensor.AboutActivity"
             android:label="@string/title_activity_about"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme"/>
     </application>
 
 </manifest>

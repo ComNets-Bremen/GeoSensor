@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="de.uni_bremen.geosensor.GeoSensorActivity">
+    tools:context="de.uni_bremen.comnets.geosensor.GeoSensorActivity">
 
 </android.support.constraint.ConstraintLayout>

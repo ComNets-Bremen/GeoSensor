@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="de.uni_bremen.geosensor.MainActivity">
+    tools:context="de.uni_bremen.comnets.geosensor.MainActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/mainToolbar"
@@ -20,7 +20,7 @@
         tools:ignore="UnusedAttribute" />
 
     <fragment
-        android:name="de.uni_bremen.geosensor.SettingsFragment"
+        android:name="de.uni_bremen.comnets.geosensor.SettingsFragment"
         android:layout_below="@+id/mainToolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

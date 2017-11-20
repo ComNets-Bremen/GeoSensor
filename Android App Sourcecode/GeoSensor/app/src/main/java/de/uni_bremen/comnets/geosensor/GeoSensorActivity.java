@@ -11,6 +11,8 @@ import android.support.v7.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.android.gms.oss.licenses.OssLicensesMenuActivity;
+
 /**
  * This Activity is the parent class of the Activities used in this app.
  * It is based on AppCompatActivity in order to support material design on older API levels.
@@ -113,6 +115,10 @@ public abstract class GeoSensorActivity extends AppCompatActivity {
             case R.id.action_about:
                 Intent aboutIntent = new Intent(this, AboutActivity.class);
                 startActivity(aboutIntent);
+                return true;
+
+            case R.id.action_license:
+                startActivity(new Intent(this, OssLicensesMenuActivity.class));
                 return true;
 
             default:

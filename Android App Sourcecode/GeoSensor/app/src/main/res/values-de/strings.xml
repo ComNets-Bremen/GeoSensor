@@ -193,4 +193,5 @@
         genannt wird.
         \n\nEinige Bestandteile der App sind Copyright 2014 The Android Open Source Project.
     </string>
+    <string name="action_license">Lizenzen</string>
 </resources>
