@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="de.eiketrumann.geosensor.FirstStartActivity">
+    tools:context="de.uni_bremen.geosensor.FirstStartActivity">
 
     <FrameLayout
         android:id="@+id/content"

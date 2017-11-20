@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="de.eiketrumann.geosensor.MainActivity">
+    tools:context="de.uni_bremen.geosensor.MainActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/mainToolbar"
@@ -25,6 +25,6 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="de.eiketrumann.geosensor.MainMapsActivity"
+        tools:context="de.uni_bremen.geosensor.MainMapsActivity"
         android:layout_below="@+id/mainToolbar" />
 </RelativeLayout>

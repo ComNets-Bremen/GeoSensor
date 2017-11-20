@@ -1,0 +1,173 @@
+package de.uni_bremen.comnets.geosensor;
+
+import android.app.Activity;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.preference.PreferenceManager;
+import android.view.MenuItem;
+
+import java.lang.reflect.Method;
+
+/**
+ * The first start activity should be shown if the app is started and no transducer device has yet
+ * been connected. It offers a short introduction to the software and asks the user to select a
+ * transducer device. This activity contains a bottom navigation bar in order to distinguish the
+ * available actions from those that you typically find in the toolbar.
+ */
+public class FirstStartActivity extends AppCompatActivity {
+
+    /** Arbitrary unique request codes */
+    private final static int REQUEST_ENABLE_BLUETOOTH = 5204;
+    private final static int REQUEST_SELECT_DEVICE = 9087;
+
+    /** A broadcast receiver waiting for Bluetooth to be activated*/
+    private BroadcastReceiver broadcastReceiver;
+
+    /**
+     * The bottom navigation bar contains a dismiss and a start action.
+     * The dismiss action gets the user to the (presumably empty) main list.
+     * The start action asks the user to activate Bluetooth if it is not at this moment.
+     * If Bluetooth is activated, the user can chose a device among those coupled or search for
+     * other devices.
+     */
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.navigation_skip:
+                    finish();
+                    return true;
+                case R.id.navigation_start:
+                    if(!PermissionsManager.isPermissionGranted(FirstStartActivity.this,"BLUETOOTH")) {
+                        PermissionsManager.getPermission(FirstStartActivity.this,"BLUETOOTH");
+                    } else {
+                        BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+                        if (!bluetoothAdapter.isEnabled()){
+                            Intent enableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+                            enableIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivityForResult(enableIntent,REQUEST_ENABLE_BLUETOOTH);
+                        } else {
+                            startBluetoothSelector();
+                        }
+                    }
+                    return true;
+            }
+            return false;
+        }
+
+    };
+
+    /**
+     * In onCreate, the bottom navigation bar in initialized.
+     * @param savedInstanceState Android lifecycle bundle
+     */
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_first_start);
+
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+    }
+
+    /**
+     * In onStart a BroadcastReceiver is registered to get a Broadcast when bluetooth is activated.
+     */
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(BluetoothAdapter.ACTION_STATE_CHANGED);
+
+        // the BroadcastReceiver has the same lifecycle as this service and is therefore registered
+        // programmatically
+        broadcastReceiver = new FirstStartBluetoothStatusListener();
+        registerReceiver(broadcastReceiver, intentFilter);
+    }
+
+    /**
+     * unregister the Broadcast Receiver
+     */
+    @Override
+    protected void onStop() {
+        super.onStop();
+        unregisterReceiver(broadcastReceiver);
+    }
+
+    /**
+     * Start the actual Bluetooth Selector dialog.
+     */
+    private void startBluetoothSelector(){
+        Intent serverIntent = new Intent(this, DeviceListActivity.class);
+        startActivityForResult(serverIntent, REQUEST_SELECT_DEVICE);
+    }
+
+    /**
+     * This puts the device that resulted from the selector dialog into the shared preferences.
+     * There is some ugly hack to try to pair devices using the reflection api.
+     * @param requestCode The request code as defined in this class
+     * @param resultCode The result (canceled or OK)
+     * @param data The data generated by the device selector activity
+     */
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case REQUEST_SELECT_DEVICE:
+                // When DeviceListActivity returns with a device to connect
+                if (resultCode == Activity.RESULT_OK) {
+                    // Get the device MAC address
+                    String address = data.getExtras()
+                            .getString(DeviceListActivity.EXTRA_DEVICE_ADDRESS);
+                    // Get the BluetoothDevice object
+                    SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+                    pref.edit().putString(getString(R.string.pref_key_select_bluetooth),address).apply();
+
+                    // Test if the device is already bonded
+                    BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
+                    BluetoothDevice device = adapter.getRemoteDevice(address);
+                    if (device.getBondState() != BluetoothDevice.BOND_BONDED) {
+                        try {
+                            // Using reflection seems ugly, but seems to be the usual way to do this
+                            Method method = device.getClass().getMethod("createBond", (Class[]) null);
+                            method.invoke(device, (Object[]) null);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    pref.edit().putBoolean(getString(R.string.pref_key_bluetooth_basic),true).apply();
+                    finish();
+                }
+                break;
+        }
+    }
+
+    /**
+     * A status listener for the Bluetooth turning on
+     */
+    public class FirstStartBluetoothStatusListener extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            switch (action) {
+                case (BluetoothAdapter.ACTION_STATE_CHANGED):
+                    switch (intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, BluetoothAdapter.ERROR)) {
+                        case (BluetoothAdapter.STATE_ON):
+                            startBluetoothSelector();
+                            return;
+                    }
+                    break;
+            }
+        }
+    }
+}
